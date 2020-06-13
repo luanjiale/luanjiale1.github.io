@@ -15,7 +15,9 @@
     <content><![CDATA[<h2 id="JAVA-String类"><a href="#JAVA-String类" class="headerlink" title="JAVA String类"></a>JAVA String类</h2><h3 id="String-3大特性"><a href="#String-3大特性" class="headerlink" title="String 3大特性"></a>String 3大特性</h3><ul>
 <li>不变性：是一个 immutable 模式的对象，不变模式的主要作用是当一个对象需要被多线程共享并 频繁访问时，可以保证数据的⼀致性。 </li>
 <li>常量量池优化：String 对象创建之后，会在字符串常量池中进行缓存，下次创建同样的对象时，会直 接返回缓存的引⽤。</li>
-<li>final: String类不可被继承，提⾼了系统的安全性。</li>
+<li>final: String类不可被继承，提⾼了系统的安全性。<a id="more"></a>
+
+</li>
 </ul>
 <h3 id="String-的实例例化有两种⽅方式："><a href="#String-的实例例化有两种⽅方式：" class="headerlink" title="String 的实例例化有两种⽅方式："></a>String 的实例例化有两种⽅方式：</h3><ul>
 <li><p>直接赋值</p>
@@ -28,7 +30,6 @@
 </li>
 </ul>
 <h3 id="equals重写"><a href="#equals重写" class="headerlink" title="equals重写"></a>equals重写</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span> </span>&#123; </span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">this</span> == anObject) &#123; </span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">	String aString = (String)anObject;</span><br><span class="line">    <span class="keyword">if</span> (coder() == aString.coder()) &#123;</span><br><span class="line">    <span class="keyword">return</span> isLatin1() ? StringLatin1.equals(value, aString.value) : StringUTF16.equals(value, aString.value);</span><br><span class="line">		&#125; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">false</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-  <a id="more"></a>
 <blockquote>
 <p>因为 String 类对 equals 方法进行了重写，所以我们可以直接调用String 的 equals 方法来判断两个字 符串的值是否相等。</p>
 </blockquote>
