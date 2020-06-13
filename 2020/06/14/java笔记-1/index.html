@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="FullStack的博客">
 <meta property="og:description" content="JAVA String类String 3大特性 不变性：是一个 immutable 模式的对象，不变模式的主要作用是当一个对象需要被多线程共享并 频繁访问时，可以保证数据的⼀致性。  常量量池优化：String 对象创建之后，会在字符串常量池中进行缓存，下次创建同样的对象时，会直 接返回缓存的引⽤。 final: String类不可被继承，提⾼了系统的安全性。  String 的实例例化有两种⽅方">
 <meta property="article:published_time" content="2020-06-13T20:08:05.000Z">
-<meta property="article:modified_time" content="2020-06-13T20:08:16.335Z">
+<meta property="article:modified_time" content="2020-06-13T20:17:55.719Z">
 <meta property="article:author" content="Lu@nJiale">
 <meta name="twitter:card" content="summary">
 
@@ -419,7 +419,7 @@
 </li>
 </ul>
 <h3 id="equals重写"><a href="#equals重写" class="headerlink" title="equals重写"></a>equals重写</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span> </span>&#123; </span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">this</span> == anObject) &#123; </span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">	String aString = (String)anObject;</span><br><span class="line">    <span class="keyword">if</span> (coder() == aString.coder()) &#123;</span><br><span class="line">    <span class="keyword">return</span> isLatin1() ? StringLatin1.equals(value, aString.value) : StringUTF16.equals(value, aString.value);</span><br><span class="line">		&#125; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">false</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+  <a id="more"></a>
 <blockquote>
 <p>因为 String 类对 equals 方法进行了重写，所以我们可以直接调用String 的 equals 方法来判断两个字 符串的值是否相等。</p>
 </blockquote>
@@ -551,8 +551,12 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String[] split(String regex);</span><br></pre></td></tr></table></figure>
 
 <p>split 方法支持传入正则表达式，进行复杂的字符串分割，比如 “Hello,World;Java-String”，如果要分别 将 Hello、World、Java、String 截取出来，使⽤用统一的某个分割符肯定⽆无法完成，这时候可以借助于正则表达式 “[,|;|-]” 来实现，具体操作如下所示。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="keyword">new</span> String(<span class="string">"Hello,World;Java-String"</span>); </span><br><span class="line">String[] array = str.split(<span class="string">"[,|;|-]"</span>); </span><br><span class="line"><span class="keyword">for</span> (String item:array)&#123; </span><br><span class="line">	System.out.println(item);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="keyword">new</span> String(<span class="string">"Hello,World;Java-String"</span>); </span><br><span class="line">String[] array = str.split(<span class="string">"[,|;|-]"</span>); </span><br><span class="line"><span class="keyword">for</span> (String item:array)&#123; </span><br><span class="line">	System.out.println(item);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="经典面试题"><a href="#经典面试题" class="headerlink" title="经典面试题"></a>经典面试题</h3></li>
 </ul>
+<ol>
+<li>== 和 equals 的区别？<br>== 可以理理解为是⽐比较栈内存中的值，如果变量量是基本数据类型，则栈内存中存放的就是具体数值，如 果是引⽤用类型，则栈中存放的是引⽤用的内存地址。所以对于基本数据类型，== 是比较值是否相等，对于引用数据类型，比较的是引用的内存地址是否相等。</li>
+</ol>
 
       
     </div>
@@ -726,7 +730,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA-String类"><span class="nav-text">JAVA String类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-3大特性"><span class="nav-text">String 3大特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-的实例例化有两种⽅方式："><span class="nav-text">String 的实例例化有两种⽅方式：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#区别："><span class="nav-text">区别：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#equals重写"><span class="nav-text">equals重写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#intern-方法"><span class="nav-text">intern() 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String常用方法"><span class="nav-text">String常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串截取和分割"><span class="nav-text">字符串截取和分割</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA-String类"><span class="nav-text">JAVA String类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-3大特性"><span class="nav-text">String 3大特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-的实例例化有两种⽅方式："><span class="nav-text">String 的实例例化有两种⽅方式：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#区别："><span class="nav-text">区别：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#equals重写"><span class="nav-text">equals重写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#intern-方法"><span class="nav-text">intern() 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String常用方法"><span class="nav-text">String常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串截取和分割"><span class="nav-text">字符串截取和分割</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#经典面试题"><span class="nav-text">经典面试题</span></a></li></ol></li></ol></div>
             
 
           </div>
