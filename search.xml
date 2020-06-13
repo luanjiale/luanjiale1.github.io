@@ -10,7 +10,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>java笔记</title>
+    <title>java String</title>
     <url>/2020/06/14/java%E7%AC%94%E8%AE%B0-1/</url>
     <content><![CDATA[<h2 id="JAVA-String类"><a href="#JAVA-String类" class="headerlink" title="JAVA String类"></a>JAVA String类</h2><h3 id="String-3大特性"><a href="#String-3大特性" class="headerlink" title="String 3大特性"></a>String 3大特性</h3><ul>
 <li>不变性：是一个 immutable 模式的对象，不变模式的主要作用是当一个对象需要被多线程共享并 频繁访问时，可以保证数据的⼀致性。 </li>
